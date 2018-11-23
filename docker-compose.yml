@@ -1,0 +1,36 @@
+version: '2'
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    volumes:
+    - './storage/app/postgres/data:/var/lib/postgresql/data'
+    environment:
+    - POSTGRES_DB=gusgo
+    - POSTGRES_USER=gusgo
+    - POSTGRES_PASSWORD=gusgo
+    ports:
+    - '5432:5432'
+
+  devapp:
+    depends_on:
+      - postgres
+    image: ambientum/php:7.2-nginx
+    container_name: gusgo-app
+    volumes:
+      - '.:/var/www/app'
+      - '${HOME}/.composer/:/home/ambientum/.composer/'
+    ports:
+      - "8081:8080"
+    links:
+    - postgres
+
+  queue:
+    image: ambientum/php:7.2-nginx
+    restart: always
+    command: php artisan queue:work --tries=5
+    volumes:
+      - './:/var/www/app'
+    links:
+      - postgres
