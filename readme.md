@@ -1,3 +1,16 @@
+		-Subir aplicacao com docker 
+			docker-compose up -d
+		-Duplicar .env.example e renomear para .env
+		-Acessar o bash do container da aplicação
+			docker-compose exec devapp bash
+		-Instalar composer
+			composer install
+		-Executar as migrations
+			php artisan migrate 	
+			php artisan module:migrate
+		-Criar a chave encriptação
+			php artisan key:generate
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
