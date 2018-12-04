@@ -9,6 +9,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
+        "nwidart/laravel-modules": "^4.0",
         "tymon/jwt-auth": "dev-develop",
         "webpatser/laravel-uuid": "^3.0"
     },
@@ -25,7 +26,8 @@
             "database/factories"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Modules\\": "Modules/"
         }
     },
     "autoload-dev": {

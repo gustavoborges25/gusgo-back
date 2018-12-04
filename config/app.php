@@ -160,6 +160,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        Nwidart\Modules\LaravelModulesServiceProvider::class,
 
     ],
 
@@ -212,6 +213,7 @@ return [
         'Uuid' => Webpatser\Uuid\Uuid::class,
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+        'Module' => Nwidart\Modules\Facades\Modules::class,
 
     ],
 
