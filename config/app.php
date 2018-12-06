@@ -150,6 +150,9 @@ return [
         /*
          * Package Service Providers...
          */
+        Nwidart\Modules\LaravelModulesServiceProvider::class,
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -159,8 +162,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
-        Nwidart\Modules\LaravelModulesServiceProvider::class,
 
     ],
 
