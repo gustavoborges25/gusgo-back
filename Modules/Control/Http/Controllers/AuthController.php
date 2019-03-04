@@ -22,15 +22,10 @@ class AuthController extends Controller
         $email = $request->email;
 
         $user = User::getUserByEmail($email);
+        $loginData['email'] = $user->email;
 
-        $loginData['email'] = decrypt($user->email);
-
-        try {
-            if (!$user || ! $token = JWTAuth::attempt($loginData)) {
-                return $this->errorHandlerForLogin($user);
-            }
-        } catch (JWTException $e) {
-            return response()->json(['error' => 'could_not_create_token'], 500);
+        if (!$user || ! $token = JWTAuth::attempt($loginData)) {
+            return $this->errorHandlerForLogin($user);
         }
 
         return response()->json(compact('token'));

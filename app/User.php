@@ -37,11 +37,14 @@ class User extends Authenticatable
 
     public static function getUserByEmail($email)
     {
-        $users = User::all();
+        $user = User
+            ::all()
+            ->filter(function ($user) use ($email) {
+                if (decrypt($user->email) == $email) {
+                    return $user;
+                }
+            });
 
-        return $users->filter(function ($user) use ($email) {
-            return decrypt($user->email) == $email;
-        })->first();
-
+        return $user->first();
     }
 }
