@@ -32,19 +32,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
+        'password', 'remember_token',
     ];
-
-    public static function getUserByEmail($email)
-    {
-        $user = User
-            ::all()
-            ->filter(function ($user) use ($email) {
-                if (decrypt($user->email) == $email) {
-                    return $user;
-                }
-            });
-
-        return $user->first();
-    }
 }
