@@ -150,9 +150,6 @@ return [
         /*
          * Package Service Providers...
          */
-        Nwidart\Modules\LaravelModulesServiceProvider::class,
-        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
-        Barryvdh\Cors\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -162,6 +159,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
 
     ],
 
@@ -214,7 +212,6 @@ return [
         'Uuid' => Webpatser\Uuid\Uuid::class,
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
-        'Module' => Nwidart\Modules\Facades\Modules::class,
 
     ],
 
